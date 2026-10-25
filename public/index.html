@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D 俯视角足球 · 5v5</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>⚽ 2D 俯视角足球 · 5v5</h1>
+
+  <!-- 计分板 -->
+  <div class="scoreboard">
+    <div class="team blue">
+      <span class="team-name">蓝队（你）</span>
+      <span class="team-score" id="scoreBlue">0</span>
+    </div>
+    <div class="clock" id="clock">05:00</div>
+    <div class="team red">
+      <span class="team-score" id="scoreRed">0</span>
+      <span class="team-name">红队（AI）</span>
+    </div>
+  </div>
+
+  <!-- 游戏画布 + 结束遮罩 -->
+  <div class="stage">
+    <canvas id="game" width="1200" height="720"></canvas>
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay-card">
+        <h2 id="overlayTitle">比赛结束</h2>
+        <p id="overlayText"></p>
+        <button id="restartBtn">再来一场</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <h3>操作说明</h3>
+      <ul>
+        <li><b>W / A / S / D</b> — 移动你的球员（蓝队 10 号前锋，黄色光圈标记）</li>
+        <li><b>Shift</b> — 冲刺加速（移动时按住）</li>
+        <li><b>空格</b> — 射门（球在脚下时）</li>
+        <li><b>E</b> — 传球给位置最靠前的队友（持球时）</li>
+        <li>碰到球或贴身对方持球队员即可拿球 / 抢断；对方贴身也能捅走你的球</li>
+        <li>比赛时长 90 秒，结束时成绩会自动上报后端服务器</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>历史战绩（来自后端）</h3>
+      <div id="stats" class="stats-line">加载中...</div>
+      <table id="history">
+        <thead>
+          <tr><th>时间</th><th>蓝队</th><th>红队</th><th>结果</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

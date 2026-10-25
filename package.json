@@ -1,0 +1,10 @@
+{
+  "name": "football-game",
+  "version": "1.0.0",
+  "description": "2D 俯视角足球小游戏（5v5）—— Canvas 前端 + Node.js 零依赖后端",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
